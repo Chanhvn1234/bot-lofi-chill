@@ -15,7 +15,7 @@ load_dotenv()
 BOT_TOKEN = os.getenv("DISCORD_TOKEN") 
 VOICE_CHANNEL_ID = 1522932283395276870  # <<< ÔNG NHỚ ĐIỀN ID PHÒNG VÀO NHA
 
-LOFI_10H_URL = "https://youtu.be/JCKBaJDRMw4?si=7dH1HhzA-r0JWR7w"  
+LOFI_10H_URL = "https://youtu.be/krI9ayID2lk?si=_tno2LP2nzmFOKQ0"  
 # ============================================================
 
 intents = discord.Intents.default()
