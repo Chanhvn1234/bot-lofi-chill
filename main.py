@@ -61,7 +61,7 @@ async def play_infinite_loop(vc):
 @bot.event
 async def on_ready():
     print(f"=== {bot.user.name} Đã Hạ Cánh Lên Đám Mây ===")
-    channel = bot.get_channel(VOICE_CHANNEL_ID)
+    channel = bot.get_channel(1522932283395276870)
     if channel:
         vc = discord.utils.get(bot.voice_clients, guild=channel.guild)
         if not vc:
@@ -75,7 +75,7 @@ async def on_ready():
 async def on_voice_state_update(member, before, after):
     if member.id == bot.user.id and after.channel is None:
         await asyncio.sleep(5)
-        channel = bot.get_channel(VOICE_CHANNEL_ID)
+        channel = bot.get_channel(1522932283395276870)
         if channel:
             try:
                 vc = await channel.connect()
