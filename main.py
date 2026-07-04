@@ -28,6 +28,7 @@ ffmpeg_options = {
 
 ydl_opts = {
     'format': 'bestaudio/best',
+    'cookiefile': 'cookies.txt',
     'noplaylist': True,
     'quiet': True,
     'no_warnings': True
