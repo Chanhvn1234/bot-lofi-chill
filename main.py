@@ -60,16 +60,21 @@ async def play_infinite_loop(vc):
 
 @bot.event
 async def on_ready():
-    print(f"=== {bot.user.name} Đã Hạ Cánh Lên Đám Mây ===")
-    channel = bot.get_channel(1522932283395276870)
-    if channel:
-        vc = discord.utils.get(bot.voice_clients, guild=channel.guild)
-        if not vc:
+    print(f'=== {bot.user.name} Đã Hạ Cánh Lên Đám Mây ===')
+    # Ép bot quét lại tất cả server nó đang ở
+    for guild in bot.guilds:
+        print(f"Đang kiểm tra server: {guild.name}")
+        # Tìm kênh dựa trên ID ông đã dán vào
+        channel = guild.get_channel(1522932283395276870) # <--- DÁN ID CỦA ÔNG VÀO ĐÂY
+        if channel:
+            print(f"Tìm thấy kênh {channel.name}! Đang kết nối...")
             try:
                 vc = await channel.connect()
+                bot.loop.create_task(play_infinite_loop(vc))
+                print("Đã vào phòng thành công!")
+                return # Thoát khỏi vòng lặp khi đã vào được
             except Exception as e:
-                return
-        bot.loop.create_task(play_infinite_loop(vc))
+                print(f"Lỗi khi kết nối: {e}")
 
 @bot.event
 async def on_voice_state_update(member, before, after):
