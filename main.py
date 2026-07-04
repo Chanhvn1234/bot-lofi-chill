@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import yt_dlp
+import traceback
 import os
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -76,6 +77,7 @@ async def on_ready():
                 return # Thoát khỏi vòng lặp khi đã vào được
             except Exception as e:
                 print(f"Lỗi khi kết nối: {e}")
+                traceback.print_exc() 
 
 @bot.event
 async def on_voice_state_update(member, before, after):
